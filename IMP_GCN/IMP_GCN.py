@@ -212,7 +212,7 @@ class IMP_GCN(object):
 
         user_group_embeddings_hidden_1 = tf.nn.leaky_relu(tf.matmul(user_group_embeddings_side, self.weights['W_gc_1']) + self.weights['b_gc_1'])
 
-        user_group_embeddings_hidden_d1 = tf.nn.dropout(user_group_embeddings_hidden_1, 0.8)
+        user_group_embeddings_hidden_d1 = tf.nn.dropout(user_group_embeddings_hidden_1, 0.6)
 
         #user_group_embeddings_hidden_2 = tf.nn.leaky_relu(tf.matmul(user_group_embeddings_hidden_1, self.weights['W_gc_2']) + self.weights[
         #    'b_gc_2'])
