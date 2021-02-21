@@ -9,10 +9,10 @@ from tensorflow.python.ops.sparse_ops import KeywordRequired
 from utility.helper import *
 from utility.batch_test import *
 
-class IMP_GCM(object):
+class IMP_GCN(object):
     def __init__(self, data_config, pretrain_data):
         # argument settings
-        self.model_type = 'UIGCNRR'
+        self.model_type = 'IMP_GCN'
         self.adj_type = args.adj_type
         self.alg_type = args.alg_type
         self.group = args.groups
@@ -209,15 +209,10 @@ class IMP_GCM(object):
             temp_embed.append(tf.sparse_tensor_dense_matmul(A_fold_hat[f], ego_embeddings))
         user_group_embeddings_side = tf.concat(temp_embed, 0) + ego_embeddings
 
-        # user_group_embeddings_side = ego_embeddings
-        #user_group_embeddings = tf.nn.leaky_relu(
-        #    tf.matmul(user_group_embeddings, self.weights['W_gc']) + self.weights['b_gc'])
-
-        #user_group_embeddings_hidden_1 = tf.nn.leaky_relu(tf.matmul(user_group_embeddings_side, self.weights['W_gc_1']) + self.weights['b_gc_1'])
 
         user_group_embeddings_hidden_1 = tf.nn.leaky_relu(tf.matmul(user_group_embeddings_side, self.weights['W_gc_1']) + self.weights['b_gc_1'])
 
-        user_group_embeddings_hidden_d1 = tf.nn.dropout(user_group_embeddings_hidden_1, 0.6)
+        user_group_embeddings_hidden_d1 = tf.nn.dropout(user_group_embeddings_hidden_1, 0.8)
 
         #user_group_embeddings_hidden_2 = tf.nn.leaky_relu(tf.matmul(user_group_embeddings_hidden_1, self.weights['W_gc_2']) + self.weights[
         #    'b_gc_2'])
