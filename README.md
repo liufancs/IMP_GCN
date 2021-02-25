@@ -2,7 +2,7 @@
 
 This is our implementation for the paper:
 
-Fan Liu, Zhiyong Cheng*, Lei Zhu, Zan Gao and Liqiang Nie*. [Interest-aware Message-Passing GCN for Recommendation]
+Fan Liu, Zhiyong Cheng*, Lei Zhu, Zan Gao and Liqiang Nie*. [Interest-aware Message-Passing GCN for Recommendation](https://arxiv.org/abs/2102.10044). The Web Conference 2021 (WWW'21), Ljubljana, Slovenia, 2021 (“*”= Corresponding author)
 
 
 ## Environment Settings
